@@ -19,15 +19,4 @@ _A modern browser automation tool to extract discounted T-shirt data from Myntra
 - **JUnit 5** – Test execution framework.  
 - **Maven** – Dependency management & build tool.
 
-## 🗂 **Project Structure**
-📂 MyntraTShirtScraper
-┣ 📂 src/test/java/com/myntra
-┃ ┣ 📂 stepdefinitions # Cucumber step definitions
-┃ ┣ 📂 runner # TestRunner class for execution
-┃ ┗ 📂 utilities # Helper methods for data extraction
-┣ 📂 src/test/resources/features
-┃ ┗ 📜 scrape_discounted_t_shirts.feature # Gherkin feature files
-┣ 📄 pom.xml # Project dependencies (Maven)
-┗ 📄 README.md # Project Documentation
-
 
