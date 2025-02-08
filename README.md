@@ -11,23 +11,23 @@ _A modern browser automation tool to extract discounted T-shirt data from Myntra
 ✔️ Smart sorting by discounts  
 ✔️ BDD-structured test scenarios
 
----
+## 🏗 **Tech Stack**
 
-## 🌟 **Key Features**
-| 🛠️ Feature          | 📝 Description                                  |
-|--------------------|-----------------------------------------------|
-| 🤖 **Browser Automation** | Playwright-powered headless browser interactions |
-| 🎚️ **Smart Filtering**   | Category + Brand filters with dynamic waits     |
-| 📊 **Data Extraction**    | Scrape prices & discounts across pagination     |
-| 📈 **Discount Sorting**   | Descending order sorting by discount percentage |
-| 🧩 **BDD Structure**      | Human-readable Gherkin scenarios               |
+- **Java (JDK 21)** – Core programming language.  
+- **Playwright** – Modern browser automation.  
+- **Cucumber BDD** – Test scenarios in Gherkin syntax.  
+- **JUnit 5** – Test execution framework.  
+- **Maven** – Dependency management & build tool.
 
----
+## 🗂 **Project Structure**
+📂 MyntraTShirtScraper
+┣ 📂 src/test/java/com/myntra
+┃ ┣ 📂 stepdefinitions # Cucumber step definitions
+┃ ┣ 📂 runner # TestRunner class for execution
+┃ ┗ 📂 utilities # Helper methods for data extraction
+┣ 📂 src/test/resources/features
+┃ ┗ 📜 scrape_discounted_t_shirts.feature # Gherkin feature files
+┣ 📄 pom.xml # Project dependencies (Maven)
+┗ 📄 README.md # Project Documentation
 
-## 🛠️ **Tech Stack**
-```bash
-☕ Java (JDK 21)        - Core programming language
-🎭 Playwright          - Browser automation
-🥒 Cucumber BDD        - Gherkin syntax scenarios
-⚙️ JUnit 5             - Test execution backbone
-📦 Maven               - Dependency management
+
