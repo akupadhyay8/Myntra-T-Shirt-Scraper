@@ -1,6 +1,6 @@
-# 🔍 Myntra T-Shirt Scraper with Playwright & Cucumber BDD (Java) 🚀
+# 🛒 Myntra T-Shirt Scraper with Playwright & Cucumber BDD (Java)
 
-⭐ **Automated Web Scraping Solution for E-commerce Insights** ⭐
+This project is an automated web scraping tool built using Playwright and Cucumber BDD in Java. The objective is to navigate Myntra.com, apply category and brand filters, scrape discounted T-shirts, and sort them by the highest discount. The framework follows Behavior-Driven Development (BDD) principles, making the test scenarios structured, readable, and reusable.
 
 ---
 
