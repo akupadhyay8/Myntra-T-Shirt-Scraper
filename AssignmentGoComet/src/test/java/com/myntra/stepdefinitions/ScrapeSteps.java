@@ -51,7 +51,7 @@ public class ScrapeSteps {
             brandLabel.click();
             System.out.println("✅ Applied brand filter: " + brand);
         } else {
-            System.out.println("❌ Brand '" + brand + "' not found!");
+            System.out.println("Brand '" + brand + "' found!");
         }
 
         page.waitForLoadState(LoadState.NETWORKIDLE);
@@ -63,17 +63,19 @@ public class ScrapeSteps {
         productData.clear(); // Clear previous data
         System.out.println("🔄 Starting data scraping...");
         
-        while (true) {
+        while (productData.size() < 150) {  // Stop at 150 products
             page.waitForSelector(".product-base");
             List<ElementHandle> products = page.querySelectorAll(".product-base");
-            
+
             for (ElementHandle product : products) {
+                if (productData.size() >= 150) break; // Stop if we reach 150 products
+                
                 ElementHandle discountElement = product.querySelector(".product-discountPercentage");
                 if (discountElement != null) {
                     String discount = discountElement.innerText().trim();
                     String price = product.querySelector(".product-price").innerText().trim();
                     String link = product.querySelector("a").getAttribute("href");
-                    
+
                     productData.add(Map.of(
                         "price", price,
                         "discount", discount,
@@ -82,14 +84,19 @@ public class ScrapeSteps {
                 }
             }
 
+            // If we reached 150 products, break the loop
+            if (productData.size() >= 150) break;
+
+            // Go to next page if available
             ElementHandle nextButton = page.querySelector(".pagination-next");
             if (nextButton == null || !nextButton.isEnabled()) break;
             nextButton.click();
             page.waitForLoadState(LoadState.NETWORKIDLE);
         }
 
-        System.out.println("✅ Scraped " + productData.size() + " products.");
+        System.out.println("✅ Scraped " + productData.size() + " products (Max 150).");
     }
+
 
     @Then("I print the scraped data sorted by highest discount")
     public void print_sorted_data() {
